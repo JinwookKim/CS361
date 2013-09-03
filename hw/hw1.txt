@@ -1,0 +1,58 @@
+Lecture 1
+1. What uses of the term “security” are relevant to your everyday life?
+	Personal Security, Communication Security, Network Security, System Security
+2. What do these have in common?
+	Authorization, Privacy and Integrity of the data
+3. Have you been a victim of lax security? 
+	There was a recent break on Spotify with the effect of character case on username. So Yes
+4. What is the likelihood that your laptop is infected?
+	Pretty high considering that I'm connected to the internet
+5. What security measures do you employ on your laptop?
+	None. Just carefullness of browsing and downloading
+6. Do you think they are probably effective?
+	Yes, have yet to obtain a virus or information leak that I am aware of
+7. Consider the quote from the FBI ofﬁcial on slide 10. Do you think it overstates the case? Justify your answer.
+	I don't think so primarily because the vast amount of information for each individual that is availble online is incomprehensible (past addresses, pets names, family, friends, work history, maiden names, social security numbers). The ability to access all that data on even just one person, would allow one to totally ruin or enchance that person's life. This on a large scale could easily change the way our world is structured today.
+8. What is the importance in learning about computer security?
+	For me the primary goal is to understand the current weaknesses in the infrastucture and possibly aim towards enchaning personal security.
+
+Lecture 2
+1. Consider the ﬁve reasons given why security is hard. Can you think of other factors?
+	Nothing that doesn't overlap those already listed
+2. Is there a systematic way to enumerate the “bad things” that might happen to a program? Why or why not?
+	No because there are an infinite number of "bad things."
+3. Explain the asymmetry between the defender and attacker in security.
+	The attacker is maliciously attempting to find a breach in the system, while the attack is closing every possible breach.
+4. Examine the quotes from Morris and Chang. Do you agree? Why or why not?
+	Yes, because every program has a break somewhere or another, you just have to look harder. Therefore, the only way to totally secure is to not use any programs at all.
+5. Explain the statement on slide 8 that a tradeoff is typically required.
+	This means that you want it to be as secure as possible, say protect against 99.99999% of attackers while not making the process so complicated that the programs originial purpose is forgotten
+
+Lecture 3
+1. What is “risk”?
+	The possiblity that a particular threat will adversly impact an information system by exploiting a particular vulnerability
+2. Do you agree that software security is about managing risk?
+	Yes because it would be too impossible if it was about truely preventing each and every breach
+3. Name and explain a risk you accept, one you avoid, one you mitigate, and one you transfer?
+	Accept - someone may have a keylogger on a public computer
+	Avoid - I won't travel to Syria in the near future
+	Mitigate - Saving my password on multiple machines
+	Transfer - I let the accounts I use (facebook, gmail, etc) handle my privacy
+4. Evaluate annualized loss expectancy as a risk management tool.
+	You calculate the expected value of each risk and direct resources depending on that. However, you must also consider that if any of them were to occur, would any be so damaging that it would cripple your entire system.
+5. List some factors relevant to rational risk assessment.
+	Question 4 should also answer this.
+
+Lecture 4
+1. Explain the key distinction between the lists on slides 2 and 3.
+	Slide 2 tells the general themes of security. Slide 3 discusses the topics within security one can study
+2. Consider your use of computing in your personal life. Which is most important: conﬁdentiality, integrity, availability? Justify your answer.
+	Integrity. I perform most tasks with the understanding that people can see my actions. On the flip side, if someone were to imitate me on the internet and others would see it, it holds the potential to greatly damage my reputation.
+3. What does it mean “to group and categorize data”?
+	To sort into lists depending of importance. Balance is probably not as important as account access in the conext of banks
+4. Why would authorizations change over time?
+	As time changes, thre will be some breaches to authentication. For example 2 factor authentication is new.
+5. Some of the availability questions seem to relate more to reliability than to security. How are the two related?
+	Anonymous, the organization, is known to DoS many times. This can be prevented using some network set ups or just simply adding more servers. Thus reliability can be increased with better security
+6. In what contexts would authentication and non-repudiation be considered important?
+	When a retailer is selling to someone, they want to confirm that they are who they are, and that once they buy it, they cannot deny buying it (which would be expensive to the retailer to return)
