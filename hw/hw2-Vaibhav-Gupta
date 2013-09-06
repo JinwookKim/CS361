@@ -1,0 +1,99 @@
+Vaibhav Gupta
+VG6663
+
+Lecture 5
+1. Describe a possible metapolicy for a cell phone network? A military database?
+	Cell Phone Network - Only let the people in a connection know about the details of the conversation
+	Military Database - Do not let information flow down in ranks
+2. Why do you need a policy if you have a metapolicy?
+	A metapolicy is only an abstract sense of what security you need, while a policy is system specific refinement
+3. Give three possible rules within a policy concerning students’ academic records.
+	1. students have read only access to grades
+	2. students should only see either own record
+	3. teachers can only view/modify records of students in their class
+4. Could stakeholders’ interest conflict in a policy? Give an example.
+	Yes, as someone who is in i banking could want to use insider trading to make more money
+5. For the example given involving student SSNs, state the likely metapolicy.
+	An SSN should not be shared with unauthorized people
+6. Explain the statement: ”If you don’t understand the metapolicy, it becomes difficult to justify and evaluate the policy.”
+	The policy is a system specific implementation of the metapolicy. If you dont understand why the metapolicy exists, you can't explain why the policy exists
+
+Lecture 6
+1. Why is military security mainly about confidentiality? Are there also aspects of integrity and availability?
+	Much of the information is sensitive. The latter two are not considered
+2. Describe the major threat in our MLS thought experiment.
+	A general who has access to the data can take data anywhere he pleases
+3. Why do you think the proviso is there?
+	You assume the general to be a trusted source
+4. Explain the form of the labels we’re using.
+	Level - the amount of clearance you need to read/write
+	Category - Selected regions of data you can read/write
+5. Why do you suppose we’re not concerned with how the labels get there?
+	They are already determined by the person who wrote the file
+6. Rank the facts listed on slide 6 by sensitivity.
+	1. The Normandy invasion is scheduled for June 6.
+	2. The British have broken the German Enigma codes
+	3. Col. Jones just got a raise. - 4. Col. Smith didn’t get a raise.
+	5. The cafeteria is serving chopped beef on toast today. - 6. The base softball team has a game tomorrow at 3pm.
+7. Invent labels for documents containing each of those facts.
+	1. Top Secret:{Battle Plans}
+	2. Top Secret:{War Updates}
+	3,4. Secret:{Col Jones}
+	5,6. Unclassified:{}
+8. Justify the rules for “mixed” documents.
+	You need access to all categories
+
+Lecture 7
+1. Document labels are stamped on the outside. How are “labels” affixed to humans?
+	ID cards
+2. Explain the difference in semantics of labels for documents and labels for humans.
+	humans have clearance, documents have access
+3. In the context of computers what do you think are the analogues of documents? Of humans?
+	documents = files. humans = users
+4. Explain why the Principle of Least Privilege makes sense.
+	Less they know, less likely chance of information going into the wrong hands
+5. For each of the pairs of labels on slide 6, explain why the answers in the third column do or do not make sense.
+	Sensitivity <= Clearance implies yes otherwise No
+
+Lecture 8:
+1. Why do you think we introduced the vocabulary terms: objects, subjects, actions?
+	To help abstract out the idea
+2. Prove that dominates is a partial order (reflexive, transitive, antisymmetric).
+	x <= x : True
+	if x <= y, and y<=x, then x = y : True, since this can only be true if the level is the same and the categories are as well
+	if x <= y and y <= z, then x <= z : True, since the level of x <= y <= z and the categories of x are a subset of y which are a subset of z
+3. Show that dominates is not a total order.
+	Take levell:{x} and level2:{y}
+	neither dominates each other and they are ntoe equal
+4. What would have to be true for two labels to dominate each other?
+	They must be the same
+5. State informally what the the Simple Security property says.
+	Subject S with clearance (LS,CS) may be granted read access to object O with classification (LO,CO) only if (LS,CS)≥(LO,CO).
+6. Explain why it’s “only if” and not “if and only if.”
+	because iff implies equivalance
+
+Lecture 9
+1. Why isn’t Simple Security enough to ensure confidentiality?
+	I can copy a document and write it as unclassified
+2. Why do we need constraints on write access?
+	To prevent someone from passing information down
+3. What is it about computers, as opposed to human beings, that makes that particularly important?
+	Viruses may cause information leaks
+4. State informally what the *-Property says.
+	You can only pass information up while writing a document
+5. What must be true for a subject to have both read and write access to an object?
+	(LS,CS) = (LO,CO)
+6. How could we deal with the problem that the General (top secret) can’t send orders to the private (Unclassified)?
+	We provide two personas for the general
+7. Isn’t it a problem that a corporal can overwrite the war plan? Suggest how we might deal with that.
+	Don't provide information that the war plan exists or require read access to write a file
+
+Lecture 10:
+1. Evaluate changing a subject’s level (up or down) in light of weak tranquility.
+	Allow adding of categories or removal as needed
+2. Why not just use strong tranquility all the time?
+	Because then the system cannot be adapted in that case
+3. Explain why lowering the level of an object may be dangerous.
+	Classified information may be passed down
+4. Explain what conditions must hold for a downgrade (lowering object level) to be secure.
+	The subject downgrading should have access writes to all documents on that level to confirm that downgrading this object will not compromise any unintended information
