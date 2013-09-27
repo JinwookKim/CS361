@@ -1,0 +1,53 @@
+CS361 Questions: Week 5
+
+Lecture 23
+1. Are the SD and ID categories in Lipner’s model related to each other?
+	Yes, something with SD must have ID
+2. Why is it necessary for system controllers to have to ability to downgrade?
+	So you can transfer code from development to producture (common level)
+3. Can system controllers modify development code/test data?
+	Nope
+4. What form of tranquility underlies the downgrade ability?
+	changing the label
+
+Lecture 24
+1. What is the purpose of the four fundamental concerns of Clark and Wilson?
+	to confirm the security
+2. What are some possible examples of CDIs in a commercial setting?
+	Bank balances, checks, etc
+3. What are some possible examples of UDIs in a commercial setting?
+	candy on the counter
+4. What is the difference between certiﬁcation and enforcement rules?
+	certification is checked before performing, enforcement is checked while performing
+5. Give an example of a permission in a commercial setting.
+	{user A, deposit $10, {user A's bank account}}
+
+Lecture 25
+1. Why would a consultant hired by American Airlines potentially have a breach of conﬁdentiality if also hired by United Airlines?
+	conflict of interest, could give info to UA about AA's plans
+2. In the example conﬂict classes, if you accessed a ﬁle from GM, then subsequently accessed a ﬁle from Microsoft, will you then be able to access another ﬁle from GM?
+	Yes, unless you accessed a part of microsoft which was in direct competition with the file you were accessing in GM
+3. Following the previous question, what companies’ ﬁles are available for access according to the simple security rule?
+	anything not in direct competition with the previous companies
+4. What differences separate the Chinese Wall policy from the BLP model?
+	Chinese Wall changes permissions dynamically based on the subjects history
+
+Lecture 26
+1. What beneﬁts are there in associating permissions with roles, rather than subjects?
+	you can chagne the role in general or change priveledges much easier on a large scale
+2. What is the difference between authorized roles and active roles?
+	authorized roles - the roles they can be
+	active roles - what they are doing now
+3. What is the difference between role authorization and transaction authorization?
+	active role much be authorized for hte subject
+	a transction can only be done if its in the actions for the active role
+4. What disadvantages do standard access control policies have when compared to RBAC?
+	giving someone just slightly more privledges would be a pain (like advanced teller, you need a new role now)
+
+Lecture 27
+1. Why would one not want to build an explicit ACM for an access control system?
+	its mostly a sparse matrix, so waste of time
+2. Name, in order, the ACM alternatives for storing permissions with objects, storing permissions with subjects and computing permissions on the ﬂy.
+	* set of rules of compute on the fly - No specific name
+	* store permissions with objects - ACL
+	* store with subjects - Capabilities

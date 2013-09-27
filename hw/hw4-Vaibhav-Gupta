@@ -1,0 +1,39 @@
+CS361 Questions: Week 4
+These questions relate to Modules 4 and 5. Type your answers and submit them
+to the TA by 5pm on Friday, September 20.
+
+Lecture 17
+1. If a computer system complies with the BLP model, does it necessarily comply with non-interference? Why or why not?
+2. What would the NI policy be for a BLP system with subjects: A at (Secret: Crypto), B at (Secret: Nuclear)?
+3. Can covert channels exist in an NI policy? Why or why not?
+4. If the NI policy is A− > B, in a BLP system what combinations of the levels “high” and “low” could A and B have?
+
+Lecture 18
+1. Why do NI policies better resemble metapolicies than policies?
+2. What would be L’s view of the following actions: h1, l1, h2, h3, . . . , hj, l2, l3, . . . , lk
+3. What is difﬁcult about proving NI for realistic systems?
+
+Lecture 19
+1. Explain the importance of integrity in various contexts.
+2. Why would a company or individual opt to purchase commercial software rather than download a similar, freely available version?
+3. Explain the difference between separation of duty and separation of function.
+4. What is the importance of auditing in integrity contexts?
+5. What are the underlying ideas that raise the integrity concerns of Lipner?
+6. Name a common scenario where integrity would be more important than conﬁdentiality.
+
+Lecture 20
+1. Give examples of information that is highly reliable with little sensitivity and information that is not so highly reliable but with greater sensitivity.
+2. Explain the dominates relationships for each row in the table on slide 4.
+3. Construct the NI policy for the integrity metapolicy.
+4. What does it mean that conﬁdentiality and integrity are “orthogonal issues?”
+
+Lecture 21
+1. Why is Biba Integrity called the “dual” of the BLP model?
+2. Why in the ACM on slide 5 is the entry for Subj3 - Obj3 empty?
+3. If a subject satisﬁes conﬁdentiality requirements but fails integrity requirements of an object, can the subject access the object?
+
+Lecture 22
+1. What is the assumption about subjects in Biba’s low water mark policy?
+2. Are the subjects considered trustworthy?
+3. Does the Ring policy make some assumption about the subject that the LWM policy does not?
+4. Are the subjects considered trustworthy?
