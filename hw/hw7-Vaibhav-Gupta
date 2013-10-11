@@ -1,0 +1,64 @@
+CS361 Questions: Week 7
+
+Lecture 34
+1. Why is it impossible to transmit a signal over a channel at an average rate greater than C/h?
+	You can't send it better than the physical limits
+2. How can increasing the redundancy of the coding scheme increase the reliability of transmitting a message over a noisy channel?
+	It will account for lost packets of lost bits
+
+Lecture 35
+1. If we want to transmit the numbers 0-9, using a zero-order model, what is the entropy of the language?
+	h = -log(1/11)
+2. What are reasons why computing the entropy of a natural language is difficult?
+	Ex: you can jumble the letters and still have high pass through rate, letters can be missing
+	Languages have a lot of redundancy
+3. Explain the difference between zero, first, second and third-order models.
+	zero 	: naive encoding
+	first	: account for probability of usage
+	second	: accounting for pairs of letters that come together
+	third 	: accouting for sequences of 3 letter that follow each other
+
+Lecture 36
+1. Why are prior probabilities sometimes impossible to compute?
+	You often dont know all the information
+2. Why is the information content of a message relative to the state of knowledge of an observer?
+	example of academy awards from the video: the speaker has entropy 0 since they know, while audience doesn't
+3. Explain the relationship between entropy and redundancy.
+	if encoding matches entropy, there is no redundancy
+
+
+Lecture 37
+1. List your observations along with their relevance to cryptography about Captain Kidd’s encrypted message.
+	*lots of numbers, could be coordinates
+	*semicolons? (as end)
+	*what language?
+2. Explain why a key may be optional for the processes of encryption or decryption.
+	to make it private and harder to decrypt to others. Otherwise the key could be the null character
+3. What effect does encrypting a message have on the information content of a file?
+	it distorts the data and makes it harder to read raw
+4. How can redundancy in the source give clues to the decoding process?
+	all redundancy can be encrypted in a pattern
+
+Lecture 38
+1. Rewrite the following in its simplest form: D(E(D(E(P)))).
+	P
+2. Rewrite the following in its simplest form: D(E(E(P,KE),KE),KD).
+	E(P,KE)
+3. Why might a cryptanalyst want to recognize patterns in encrypted messages?
+	That would give hints as to where redundancy in the initial data existed
+4. How might properties of language be of use to a cryptanalyst?
+	redundancy will be represented in both. You can then backtrace and have some insight about the encrypted data
+
+Lecture 39
+1. Explain why an encryption algorithm, while breakable, may not be feasible to break?
+	You run all possible keys within a reasonable time
+2. Why, given a small number of plaintext/ciphertext pairs encrypted under key K, can K be recovered by exhaustive search in an expected time on the order of 2n−1 operations?
+	that is the number of possible keys
+3. Explain why substitution and transposition are both important in ciphers.
+	substituation = confusion
+	transposition = diffusion
+4. Explain the difference between confusion and diffusion.
+	confusion = replacing a simple, cause trouble obtaining the raw data
+	diffusion = move it away from original location
+5. Is confusion or diffusion better for encryption?
+	both are important as you need a combination to make it a robust algorithm
