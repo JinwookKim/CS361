@@ -1,0 +1,30 @@
+Vaibhav Gupta
+vg6663
+CS361 Questions: Week 8
+
+Lecture 40
+1. What is the difference between monoalphabetic and polyalphabetic substi- tution?
+2. What is the key in a simple substitution cipher?
+3. Why are there k! mappings from plaintext to ciphertext alphabets in simple substitution?
+4. What is the key in the Caesar Cipher example?
+5. What is the size of the keyspace in the Caesar Cipher example?
+6. Is the Caesar Cipher algorithm strong?
+7. What is the corresponding decryption algorithm to the Vigenere ciphertext example?
+Lecture 41
+1. Why are there 17576 possible decryptions for the “xyy” encoding on slide 3?
+2. Why is the search space for question 2 on slide 3 reduced by a factor of 27?
+3. Do you think a perfect cipher is possible? Why or why not?
+Lecture 42
+1. Explain why the one-time pad offers perfect encryption.
+2. Why is it important that the key in a one-time pad be random? 3. Explain the key distribution problem.
+Lecture 43
+1. What is a downside to using encryption by transposition?
+2. How could a combination of ciphers be weaker than the individual ciphers alone?
+Lecture 44
+1. Is a one-time pad a symmetric or asymmetric algorithm?
+2. Describe the difference between key distribution and key management.
+3. If someone gets a hold of Ks, can he or she decrypt S’s encrypted messages? Why or why not?
+4. Are symmetric encryption systems or public key systems better?
+Lecture 45
+1. Why do you suppose most modern symmetric encryption algorithms are block ciphers?
+2. What is the significance of malleability? %item What is the significance of homomorphic encryption?
