@@ -3,28 +3,51 @@ vg6663
 CS361 Questions: Week 8
 
 Lecture 40
-1. What is the difference between monoalphabetic and polyalphabetic substi- tution?
+1. What is the difference between monoalphabetic and polyalphabetic substitution?
+  monoalphabetic - done uniformly
+  polyalphabetic - based on symbon and its location
 2. What is the key in a simple substitution cipher?
+  the letter it self
 3. Why are there k! mappings from plaintext to ciphertext alphabets in simple substitution?
+  since there are k letters and each as a 1-1 mapping
 4. What is the key in the Caesar Cipher example?
+  the letter itself
 5. What is the size of the keyspace in the Caesar Cipher example?
+  1 for 1
 6. Is the Caesar Cipher algorithm strong?
+  no since it is a one to one mapping
 7. What is the corresponding decryption algorithm to the Vigenere ciphertext example?
+  finding the key and the the encyrpted text and checking what column they are in
 Lecture 41
 1. Why are there 17576 possible decryptions for the “xyy” encoding on slide 3?
+  each could map to a differnet letter
 2. Why is the search space for question 2 on slide 3 reduced by a factor of 27?
+  since y can only map to y
 3. Do you think a perfect cipher is possible? Why or why not?
+  yes because you can have infinite number of strings to act as keys
 Lecture 42
 1. Explain why the one-time pad offers perfect encryption.
+  since the keys are random, it would be impossible to detect even if you have the plaintext or if its just random
 2. Why is it important that the key in a one-time pad be random? 3. Explain the key distribution problem.
+  otherwise the attacker can start bruteforcing the methodology with which to detect keys
 Lecture 43
 1. What is a downside to using encryption by transposition?
+  it can probably be bruteforced relatively simply
 2. How could a combination of ciphers be weaker than the individual ciphers alone?
+  It could lead to a more detectable patter which reduces the randomness created by one
 Lecture 44
 1. Is a one-time pad a symmetric or asymmetric algorithm?
+  Symmetric
 2. Describe the difference between key distribution and key management.
+  distribution: how to convey keys and establish a secure connection
+  management: given all the keys, how to keep them safe and also make them availibe
 3. If someone gets a hold of Ks, can he or she decrypt S’s encrypted messages? Why or why not?
+  No, because it they need the private key to do any harm
 4. Are symmetric encryption systems or public key systems better?
+  public key systems as its O(n^2) vs O(n)
 Lecture 45
 1. Why do you suppose most modern symmetric encryption algorithms are block ciphers?
-2. What is the significance of malleability? %item What is the significance of homomorphic encryption?
+  its cheaper to compute and save rather doing it bit by bit
+2. What is the significance of malleability? What is the significance of homomorphic encryption?
+  malleability: is usually bad, because the attacker could change the message and it would have impact on what was recieved, even though the attacker did not have access to what it said
+  homomorphic: you can chain functions without revealing to them what the data represents, so least number of services have access to the data
