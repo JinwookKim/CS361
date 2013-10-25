@@ -1,0 +1,95 @@
+CS361 Questions: Week 9
+
+Lecture 46
+1. Which of the 4 steps in AES uses confusion and how is it done? 
+	subBytes: for each byte in the array, use its value as an index into a 256-element lookup table, and replace byte by the value stored at that location in the table
+2. Which of the 4 steps in AES uses diffusion and how is it done? 
+	shiftRows: Let Ri denote the ith row in state. Shift R0 in the state left 0 bytes (i.e., no change); shift R1 left 1 byte; shift R2 left 2 bytes; shift R3 left 3 bytes
+3. Why does decryption in AES take longer than encryption?
+	Matrix Multiplication is expensive and you have to do it many times
+4. Describe the use of blocks and rounds in AES.
+	Blocks - space where data is saved
+	rounds - the number of rounds of steps you take
+5. Why would one want to increase the total number of Rounds in AES?
+	Increased confusion and diffusion
+
+Lecture 47
+1. What is a disadvantage in using ECB mode?
+	Identical blocks in the plaintext yield identical blocks in the ciphertext
+2. How can this flaw be fixed?
+	we randomize blocks before they are encrypted
+3. What are potential weaknesses of CBC?
+	An attacker able to observe changes to ciphertext over time will be able to spot the ﬁrst block that changed
+	If an attacker can ﬁnd two identical ciphertext blocks, Ci and Cj, he can derive the following relation
+4. How is key stream generation different from standard block encryption modes?
+	the cipher is used more as a pseudorandom number generator
+
+Lecture 48
+1. For public key systems, what must be kept secret in order to ensure secrecy?
+	the private key
+2. Why are one-way functions critical to public key systems?
+	easily computed, but diﬃcult to invert without additional information
+3. How do public key systems largely solve the key distribution problem?
+	it takes much longer to performs
+4. Simplify the following according to RSA rules: {{{P }−1} } −1 .
+	{P}K-1
+5. Compare the efficiency of asymmetric algorithms and symmetric algorithms.
+	asymmertic are more efficient in general as they are cheaper
+
+Lecture 49
+1. If one generated new RSA keys and switched the public and private keys, would the algorithm still work? Why or why not?
+	yes it should work, since (P^e)^d = (P^d)^e
+2. Explain the role of prime numbers in RSA.
+	given p1 and p2, we can get p1*p2 easily
+	but given p1*p2 we cannot factor it cheaply unless we know p1 or p2
+3. Is RSA breakable?
+	yes
+4. Why can no one intercepting {M}Ka read the message?
+	you need A's private key to decrypt it
+5. Why can’t A be sure {M}Ka came from B?
+	anyone with Ka could have ecrypted it with such
+6. Why is A sure {M}K−1 originated with B?
+	since we are using B's public key to decrypt it
+7. How can someone intercepting {M}K−1 read the message?
+	if they have b's public key
+8. How can B ensure authentication as well as confidentiality when sending a message to A?
+	you can use 2 pairs of keys, one for privacy and one for signing
+
+Lecture 50
+1. Why is it necessary for a hash function to be easy to compute for any given data?
+	so you can hash many things quickly and interate on them
+2. What is the key difference between strong and weak collision resistance of a hash function.
+	weak: given m1, it is hard to find m2 != m1 where f(m1) = f(m2)
+	strong: it is hard to find f(m1) = f(m2)
+3. What is the difference between preimage resistance and second preimage resistance?
+	preimage: hard to find any m such that h = f(m)
+	second preimage: weak collision
+4. What are the implications of the birthday attack on a 128 bit hash value?
+	after 1.25 * 2^64 you can brute force it
+5. What are the implications of the birthday attack on a 160 bit hash value?
+	after 1.25 * 2^80 you can brute force it
+6. Why aren’t cryptographic hash functions used for confidentiality?
+	they are one way functions and cant be undone
+7. What attribute of cryptographic hash functions ensures that message M is bound to H(M), and therefore tamper-resistant?
+	its a one way mapping
+8. Using RSA and a cryptographic hash function, how can B securely send a message to A and guarantee both confidentiality and integrity?
+	we can send both the hash and the message, everytime m is accessed, recompute the hash and compare against the previous, it should be unchanged if integrity is preserved
+
+Lecture 51
+1. For key exchange, if S wants to send key K to R, can S send the following message: {{K}KS−1}KR−1? Why or why not? 
+	No cause anyone with R's and S's public key could decrypt it
+2. In the third attempt at key exchange on slide 5, could S have done the encryptions in the other order? Why or why not?
+	yes it would have made no difference
+3. Is {{{K}KS−1}KR}KS equivalent to {{K}KS−1}KR? 
+	no cause we have an extra ecryption with S's public key which would require Ks-1 to decrypt
+4. What are the requirements of key exchange and why?
+	 conﬁdentiality - we are keeping it secret
+	 authentication - we are sending it to the right person
+
+Lecture 52
+1. What would happen if g, p and g^a mod p were known by an eavesdropper listening in on a Diffie-Hellman exchange?
+	nothing since g, p dont have to be protected and g^a mod p is public anyways
+2. What would happen if a were discovered by an eavesdropper listening in on a Diffie-Hellman exchange?
+	if they don't know p and g along with it, then nothing. otherwise they would be able to imitate A
+3. What would happen if b were discovered by an eavesdropper listening in on a Diffie-Hellman exchange?
+	if they don't know p and g along with it, then nothing. otherwise they would be able to imitate B
