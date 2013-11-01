@@ -151,6 +151,7 @@ public class algorithm {
 				{ 0, 0, 0, 0 } };
 		byte[][] k2 = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
 				{ 0, 0, 0, 0 } };
+		key = keyMap.get(iterations - 1);
 		for (int i = 0; i < 16; i++)
 			k[i / 4][i % 4] = key[i / 4][i % 4];
 		byte[] t = { 0, 0, 0, 0 };
