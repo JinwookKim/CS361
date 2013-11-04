@@ -43,29 +43,43 @@ public class AES {
 			PrintWriter output = new PrintWriter(outputFileName);
 
 			Scanner inputScanner = new Scanner(new File(inputFile));
+			long totalBytes = 0;
+			long totalTime = 0;
 			while(inputScanner.hasNext())
 			{
 				String inputString = inputScanner.next();
-				byte[] inputBytes = hexStringToByteArray(inputString);
-				byte[] encryptedBytes = encrypt ? 
-					algorithm.encrypt(inputBytes, keyBytes) : 
-					algorithm.decrypt(inputBytes, keyBytes);
-				String outString = byteArrayToHexString(encryptedBytes);
-				System.out.println("Out: " + outString);
-				output.println(outString);
+				if( isValid(inputString)) {
+					long start_time = System.nanoTime();
+					byte[] inputBytes = hexStringToByteArray(inputString);
+					byte[] encryptedBytes = encrypt ? 
+						algorithm.encrypt(inputBytes, keyBytes) : 
+						algorithm.decrypt(inputBytes, keyBytes);
+					String outString = byteArrayToHexString(encryptedBytes);
+					totalTime += System.nanoTime() - start_time;
+					System.out.println("Out: " + outString);
+					output.println(outString);
+					totalBytes += inputString.length() / 2;
+				}
 			}
-
 			inputScanner.close();
-
 			output.flush();
 			output.close();
-
+			System.out.println("MB / second: " + ((totalBytes / 1048576) / (totalTime / 1e9)));
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 		System.exit(0);
+	}
+
+	static boolean isValid(String input) {
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if ( !(c >= 0x30 && c < 0x39) && !( c >= 0x41 && c <= 0x46) )
+				return false;
+		}
+		return true;
 	}
 
 	static String byteArrayToHexString(byte[] array)
@@ -84,10 +98,13 @@ public class AES {
 
 	static byte[] hexStringToByteArray(String s)
 	{
-		if(s.length() != 32)
+		while(s.length() < 32)
 		{
-			System.err.println("hexString length not 32: " + s);
+			// System.err.println("hexString length not 32: " + s);
+			s = s + "0";
 		}
+		if (s.length() > 32)
+			s = s.substring(0, 32);
 
 		int len = s.length();
     	byte[] data = new byte[len / 2];
