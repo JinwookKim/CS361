@@ -51,7 +51,7 @@ public class AES {
 					algorithm.encrypt(inputBytes, keyBytes) : 
 					algorithm.decrypt(inputBytes, keyBytes);
 				String outString = byteArrayToHexString(encryptedBytes);
-				System.out.println("OutStr " + outString);
+				System.out.println("Out: " + outString);
 				output.println(outString);
 			}
 
@@ -65,45 +65,7 @@ public class AES {
 		{
 			e.printStackTrace();
 		}
-			
-
-		System.exit(-1);
-
-		try{
-
-			byte[] input = {
-							(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, 
-							(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
-							(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
-							(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00
-			};
-			byte[] inKey = {
-				(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
-				(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
-				(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
-				(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00
-			};
-			System.out.println("Input: ");
-			algorithm.print2d(input);
-
-			System.out.println("Key: ");
-			algorithm.print2d(inKey);
-
-			byte[] encr = algorithm.encrypt(input, inKey);
-			System.out.println("Encrypted: ");
-			algorithm.print2d(encr);
-
-			System.out.println("Key: ");
-			algorithm.print2d(inKey);
-
-			byte[] decr = algorithm.decrypt(encr, inKey);
-			System.out.println("Decrypted: ");
-			algorithm.print2d(decr);
-			System.out.println("------------------");
-
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		System.exit(0);
 	}
 
 	static String byteArrayToHexString(byte[] array)

@@ -15,38 +15,17 @@ public class algorithm {
 	static byte stream[][];
 	static int iterations;
 
-	public static void debug(String title, int lower) {
-		//System.out.print("AFTER " + title + " " + (iterations - lower) + ": ");
-		//print(stream, true);
+	public static void debug(String title) {
+		if (false) {
+			System.out.print("After " + title);
+			if (title == "addRoundKey")
+				System.out.print("(" + (iterations-1) + ")");
+			System.out.println(":");
+			print(stream, true);
+		}
 	}
 
 	public static byte[] encrypt(byte[] input, byte[] keyIn) {
-		keyMap = new HashMap<Integer, byte[][]>();;
-		stream = twoD(input);
-		key = twoD(keyIn);
-		keyMap.put(0, twoD(keyIn));
-		iterations = 0;
-		debug("stt", 0);
-		addRoundKey();
-		debug("add", 0);
-		for (int i = 0; i < 10; i++) {
-			subBytes();
-			debug("sub",0);
-			shiftRows();
-			debug("sft",0);
-			if ( i != 9) {
-				mixColumns();
-				debug("mix",0);
-			}
-			getRoundKey();
-			//print(key, true);
-			addRoundKey();
-			debug("add",1);
-		}
-		return oneD(stream);
-	}
-
-	public static byte[] decrypt(byte[] input, byte[] keyIn) {
 		keyMap = new HashMap<Integer, byte[][]>();;
 		stream = twoD(input);
 		key = twoD(keyIn);
@@ -57,28 +36,46 @@ public class algorithm {
 			iterations++;
 		}
 
-		iterations = 10;
-		addRoundKey();
-		debug("addRoundKey", 10);
+		iterations = 0;
+		addRoundKey(iterations++);
+		debug("addRoundKey");
+		for (int i = 0; i < 10; i++) {
+			subBytes();
+			debug("subBytes");
+			shiftRows();
+			debug("shiftRows");
+			if ( i != 9) {
+				mixColumns();
+				debug("mixColumns");
+			}
+			addRoundKey(iterations++);
+			debug("addRoundKey");
+		}
+		return oneD(stream);
+	}
 
-		for(int i = 9; i >= 0; i--)
+	public static byte[] decrypt(byte[] input, byte[] keyIn) {
+		keyMap = new HashMap<Integer, byte[][]>();;
+		stream = twoD2(input);
+		key = twoD(keyIn);
+		keyMap.put(0, twoD(keyIn));
+		iterations = 1;
+		for(int i = 0; i < 10; i++) {
+			getRoundKey();
+			iterations++;
+		}
+
+		for(int i = 10; i > 0; i--)
 		{
 			iterations = i;
-			
+			addRoundKey(i);
+			if( i != 10) {
+				invMixColumns();
+			}
 			invShiftRows();
-			debug("invShiftRows", i);
 			invSubBytes();
-			debug("invSubBytes", i);
-			addRoundKey();
-			debug("addRoundKey", i);
-			invMixColumns();
-			debug("invMixColumns", i);
-			print2d(oneD(stream));
 		}
-		System.out.println("Final changes");
-		invSubBytes();
-		invShiftRows();
-		addRoundKey();
+		addRoundKey(0);
 		
 		return oneD(stream);
 	}
@@ -88,6 +85,15 @@ public class algorithm {
 				{ 0, 0, 0, 0 } };
 		for (int i = 0; i < oneD.length; i++) {
 			twoD[i / 4][i % 4] = oneD[i];
+		}
+		return twoD;
+	}
+
+	public static byte[][] twoD2(byte[] oneD) {
+		byte twoD[][] = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
+				{ 0, 0, 0, 0 } };
+		for (int i = 0; i < oneD.length; i++) {
+			twoD[i % 4][i / 4] = oneD[i];
 		}
 		return twoD;
 	}
@@ -185,13 +191,12 @@ public class algorithm {
 		}
 	}
 
-	static void addRoundKey() {
+	static void addRoundKey(int round) {
 		//System.out.println("Using iterations: " + iterations);
-		key = keyMap.get(iterations);
+		key = keyMap.get(round);
 		for (int row = 0; row < 4; row++)
 			for (int col = 0; col < 4; col++)
 				stream[row][col] = (byte) (stream[row][col] ^ key[row][col]);
-		iterations++;
 	}
 
 	static void getRoundKey() {
