@@ -1,0 +1,64 @@
+ Vaibhav gotta
+ Vg663
+  Home work 10
+
+ Lecture 59
+1. Why might it be difﬁcult to answer what constitutes an attack on a cryptographic protocol?
+There are so many possibilities of how you define attack, you can't really generalize it.
+2. Describe potential dangers of a replay attack.
+Transactions can be redone. Money could be faked.
+3. Are there attacks where an attacker gains no secret information? Explain.
+Yes, you could be aiming to simply take down communication.
+4. What restrictions are imposed on the attacker?
+They can access all communication and corrupt it
+5. Why is it important that protocols are asynchronous?
+If one is compromised, the test are not
+Lecture 60
+1. Would the Needham-Schroeder protocol work without nonces?
+Yes, however, you could not confirm if it was a new message or a relay
+2. For each step of the NS protocol, answer the two questions on slide 5.
+   A. Tell S who sender receiver and message id is
+   B. Tell A shared key for B
+   C. Tell B the shared key
+   D. Tell A messages is fresh
+   E. Tell B message is done
+Lecture 61
+1. As in slide 5, if A’s key were later changed, after having Kas compromised, how could A still be impersonated?
+B would think that A still uses old key because S never communicated with B to inform that the old key is invalid
+2. Is it fair to ask the question of a key being broken?
+Most definitely
+3. How might you address these ﬂaws if you were the protocol designer?
+Add a step for S to confirm to B about A's status
+Lecture 62
+1. What guarantees does Otway-Rees seem to provide to A and B?
+Sessions would help prevent interceptions
+2. Are there guarantees that Needham-Schroeder provides that Otway-Rees does not or vice versa?
+B is always aware if a message is a relay in needham with high probability
+3. How could you ﬁx the ﬂawed protocol from slide 4?
+You could encrypt the K before sending it with an extra lock that B puts it own lock on after which A unlocks its lock and sends it back
+Lecture 63
+1. Why is the veriﬁcation of protocols important?
+We want to make sure they do what they chain to do
+2. What is a belief logic?
+Belief logics allow reasoning about what principals within the protocol should be able to infer from the messages they see. Allows abstract proofs, but may miss some important ﬂaws.
+3. A protocol is a program; where do you think beliefs come in?
+The protocol it's based on some security ideal which is based on the beliefs of the people which created it
+Lecture 64
+1. What is a modal logic?
+A way to mathematically represent belief
+2. Explain the intuition behind the message meaning inference rule.
+If A believes (A share(K) B) and A sees {X}K then A believes(B said X).
+3. Explain the intuition behind the nonce veriﬁcation inference rule.
+If A believes X is fresh and A believes B once said X, then A believes B believes X
+4. Explain the intuition behind the jurisdiction inference rule.
+If A believes B has jurisdiction over X and A believes B believes X, then A believes X.
+5. What is idealization and why is it needed?
+Getting from protocol steps to modal logic. It's a way to abstractly verify protocols
+Lecture 65
+1. Why do you think plaintext is omitted in a BAN idealization?
+You should never send plaintext as it can be caught by an interceptor. You should not have to consider it
+2. Some idealized steps seem to refer to beliefs that will happen later in the
+protocol. Why would that be?
+It acts as a certification method to check that we meet that at all points
+3. One beneﬁt of a BAN proof is that it exposes assumptions. Explain that.
+It allows you to break down step by step seeing how and where you make any assumptions which you didn't consider initially.
