@@ -1,0 +1,70 @@
+Vaibhav Gupta
+vg6663
+hw 12
+
+Lecture 66
+1. What is PGP?
+2. What motivated Phil Zimmerman to develop it?
+	create an easy to use email encryption system
+3. Does PGP provide effective security?
+	considering the government doesnt like it, most likely it is
+4. If PGP is freeware, why would anyone bother to purchase support?
+	in case an incident like the 2003 or 2006 issue happens there would be a possibility to fix it or more likely prevent in the first place
+
+Lecture 67
+1. Explain the PGP authentication protocol.
+	Sender creates a message M.
+	Sender generates a hash of M.
+	Sender signs the hash using his private key and prepends the result to the message.
+	Receiver uses the sender’s public key to verify the signature and recover the hash code.
+	Receiver generates a new hash code for M and compares it with the decrypted hash code.
+2. Explain the PGP conﬁdentiality protocol.
+	Sender generates a message M and a random session key K.
+	M is encrypted using key K.
+	K is encrypted using the recipient’s public key, and prepended to the message.
+	Receiver uses his private key to recover the session key.
+	The session key is used to decrypt the message.
+3. How do you get both authentication and conﬁdentiality?
+	authencity on the original message
+	confidentiality to the resulting message
+
+Lecture 68
+1. Besides authentication and conﬁdentiality, what other “services” does PGP provide?
+	compression, email compatibity, and segmentation
+2. Why is compression needed?
+	encryption after compression is better cause there is less redundancy after compression
+3. Why sign a message and then compress, rather than the other way around?
+	then the signature will be the same regardless of any compression method
+4. Explain radix-64 conversion and why it’s needed?
+	it replaces certain bit strings into ascii strings so that emails wont confuse them as commands
+5. Why is PGP segmentation needed?
+	emails limit how large of an email you can send thus you may have a very large message which is split up
+
+Lecture 69
+1. What are the four kinds of keys used by PGP?
+	session keys, public keys, private keys, passphrase-based keys
+2. What special properties are needed of session keys?
+	session keys - one time use and new ones generated for each message
+3. How are session keys generated?
+	Encryption algo generates a new n-bit key from prev session key and n/2-bit blocks generated based on use keystrokes + timings
+4. Assuming RSA is used for PGP asymmetric encryption, how are the keys generated?
+	keep generating an odd number of n bits until n is prime
+5. How are the private keys protected? Why is this necessary?
+	encrypted with a user password. its to make sure they would be no way to geuss the private key
+
+Lecture 70
+1. If a user has multiple private/public key pairs, how does he know which was used when he receives an encrypted message?
+	each user has an id which is unique with a very high probability
+2. What’s on a user’s private key ring?
+	timestamp, key id, public key, private key, user id
+3. What’s on a user’s public key ring?
+	timestamp, key id, public key, user id
+4. What are the steps in retrieving a private key from the key ring?
+	retrive private key from private key ring uing key id
+	decrypt private key wuth user pass
+	recover session key and decrypt message
+5. What is the key legitimacy ﬁeld for?
+	indicates the extent to which PGP trusts that this is a valid public key for this user
+6. How is a key revoked?
+	owner issues a signed key revocation certificate, recipients are expected to update their public key rings
+	
