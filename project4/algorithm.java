@@ -77,7 +77,7 @@ public class algorithm {
 		}
 		addRoundKey(0);
 		
-		return oneD(stream);
+		return oneD2(stream);
 	}
 
 	public static byte[][] twoD(byte[] oneD) {
@@ -106,6 +106,14 @@ public class algorithm {
 		return oneD;
 	}
 	
+	public static byte[] oneD2(byte[][] twoD) {
+		byte oneD[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		for (int i = 0; i < oneD.length; i++) {
+			oneD[i] = twoD[i / 4][i % 4];
+		}
+		return oneD;
+	}
+
 	static void print2d(byte[] array) {
 		byte[][] barray = twoD(array);
 		for (int row = 0; row < 4 ; row++ ){
