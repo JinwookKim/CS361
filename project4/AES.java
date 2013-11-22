@@ -55,8 +55,8 @@ public class AES {
 						algorithm.encrypt(inputBytes, keyBytes) : 
 						algorithm.decrypt(inputBytes, keyBytes);
 					String outString = byteArrayToHexString(encryptedBytes);
+					// System.out.println(outString);
 					totalTime += System.nanoTime() - start_time;
-					System.out.println("Out: " + outString);
 					output.println(outString);
 					totalBytes += inputString.length() / 2;
 				}
@@ -74,11 +74,11 @@ public class AES {
 	}
 
 	static boolean isValid(String input) {
-		for (int i = 0; i < input.length(); i++) {
-			char c = input.charAt(i);
-			if ( !(c >= 0x30 && c < 0x39) && !( c >= 0x41 && c <= 0x46) )
-				return false;
-		}
+		// for (int i = 0; i < input.length(); i++) {
+		// 	char c = input.charAt(i);
+		// 	if ( !(c >= 0x30 && c < 0x39) && !( c >= 0x41 && c <= 0x46) )
+		// 		return false;
+		// }
 		return true;
 	}
 
