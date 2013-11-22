@@ -1,0 +1,78 @@
+Vaibhav Gupta
+hw 13
+vg6663
+
+Lecture 71
+
+1. Explain the difference between the consumer and producer problems. Which do you think would be more prevalent?
+consumer:  the attacker gets logically between the client and service and somehow disrupts the communication
+producer: the attacker produces, oﬀers or requests so many services that the server is overwhelmed
+consumer ones are probably more prevalent
+
+2. Explain syn flooding.
+ an attacker forges the return address on a number of SYN packets. The server ﬁlls its table with these half-open connections
+
+3. Why are the first three solutions to syn flooding not ideal?
+if you make it a bigger queue, they just need to add mroe packets
+if you shorten time out peoriod, they just need to add packets at a faster rate
+its difficult to discuss which are suspicious ips
+
+Lecture 72
+1. How well does packet filtering work to prevent attacks?
+Not very
+
+2. What are the differences between intrusion detection and intrusion preven- tion systems?
+IDS: analyze traﬃc patterns and react to anomalous patterns
+IPS: attempts to prevent intrusions by more aggressively blocking attempted attacks
+
+3. Explain the four different solutions mentioned to DDoS attacks.
+over-provisioning the network—have too many servers to be overwhelmed
+ﬁltering attack packets—somehow distinguish the attack packets from regular packets
+slow down processing—disadvantages all requestors, but perhaps disproportionately disadvantages attackers
+“Speak-up” solution —request additional traﬃc from all requestors.
+
+Lecture 73
+1. Explain false positive and false negatives. Which is worse?
+false negative: a genuine attack is not detected
+false positive: harmless behavior is mis-classiﬁed as an attack
+false positive as you prevent useres from accessing what they need, probably adding to your bounce rate
+
+2. Explain what “accurate” and “precise” mean in the IDS context.
+accurate: if it detects all genuine attacks;
+precise: if it never reports legitimate behavior as an attack.
+
+3. Explain the statement: “It’s easy to build an IDS that is either accurate or precise?
+You can block everything, then it will block all genuine attacks. You can report nothing so it will never report legitimate behavior.
+
+4. What is the base rate fallacy? Why is it relevant to an IDS?
+The idea of false positives. In IDS, there is a high chance its a false positive
+
+Lecture 74
+1. What did Code Red version 1 attempt to do?
+If date is between 1st and 19th of the month, generate a random list of IP addresses and attempt to infect those machines.
+It basically attempted to take down www1.whitehouse.gov with a ddos attack
+
+2. Why was Code Red version 1 ineffective?
+it had a static seed, was memory resident, and it always probed the same list of ips
+
+3. What does it mean to say that a worm is “memory resident”? What are the implications.
+The code was living in memory, so it would disappear after a reboot
+
+4. Why was Code Red version 2 much more effective than version 1?
+it used a random seed. meaning it would target many more machines than before and also spread faster
+
+Lecture 75
+1. How was Code Red II related to Code Red (versions 1 and 2)?
+they all attempted to create a network of slave machines
+
+2. Why do you suppose Code Red II incorporated its elaborate propogation scheme?
+It wanted to spread more succesfully than its predecessors, and being more careful about the ips probably had an increased chance of a hit
+
+3. What did Code Red II attempt to do?
+it created slave machines that could be used to run zombie processes as a root from the master machine
+
+4. Comment on the implications of a large population of unpatched machines.
+this means the people could keep on releasing the same virus and still expect them to work as many machines did not add patches to fix them. MAJOR SECURITY ISSUE!
+
+5. Comment on the report from Verizon cited on slide 6. What are the lessons of their study?
+This implies that many users who did install the patches are victims hackers as hackers have a tendency to mess with newer releases i suppose. The major takeway would be to be careful when installing patches and perhaps waiting a few days to see the implications of installing the patches.
