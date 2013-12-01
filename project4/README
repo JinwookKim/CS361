@@ -1,0 +1,12 @@
+Vaibhav Gupta
+Prad Nellaru
+
+To compile:
+	javac *.java
+
+To run
+	java AES <e or d> keyfile inputfile
+
+Run on a 33Mb size file:
+	encryption: 1.9832922502607409 MB/sec *SLOWER*
+	decryption: 1.4299490312542174 MB/sec

@@ -1,0 +1,114 @@
+*-Property - Subject S with clearance (LS , CS) may be granted write access to object O with classiﬁcation (LO, CO) only if (LS , CS)≤(LO, CO)
+Bell-LaPadula Model (BLP)
+Biba model/Strict Integrity Policy -  places very little trust in subjects and constrains all reads and writes to ensure that information never ﬂows up in integrity
+Biba’s Low Water Mark Policy - if s reads o, then i′(s) = min(i(s), i(o)), where i′(s) is the subject’s new integrity level after the read; Subject s can write to object o only if i(o)≤i(s)
+Biba’s Ring Policy - Any subject can read any object, regardless of integrity levels; Any subject can read any object, regardless of integrity levels; Subject s can write to object o only if i(o)≤i(s)
+(Chinese Wall) Simple Security Rule: A subject s can be granted access to an object o only if the object: is in the same company datasets as the objects already accessed by s, that is, “within the Wall,” or belongs to an entirely diﬀerent conﬂict of interest class.
+(Chinese Wall) *-property: Write access is only permitted if:access is permitted by the simple security rule, and no object can be read which is: in a diﬀerent company dataset than the one for which write access is requested, and contains unsanitized information.
+Clark-Wilson policy - Permissions are encoded as a set of triples of the form: (user,TP, {CDI set}) where user is authorized to perform a transaction procedure TP, on the given set of constrained data items (CDIs).
+Huﬀman encoding
+Lempel-Ziv algorithm
+Lipner’s integrity matrix model - confidentiality levels {AM, SL}; categories {SP, SD, SSD}; integrity level {ISP, IO, ISL}; categories {ID, IP}
+Principle of Easiest Penetration
+Principle of Least Privilege - Any subject should have access to the minimum amount of information needed to do its job.
+Shared Resource Matrix Methodology - The idea is to build a table describing system commands and their potential eﬀects on shared attributes of objects.
+access control list - stores permissions with the objects of the system
+access control matrix (ACM)
+access control policy
+annualized loss expectancy - which is a table of possible losses, their likelihood, and potential cost for an average year
+attack
+auditing - recoverability and accountability require maintaining an audit trail
+authentication - how do we establish identity
+availability - are resources available when needed
+bandwidth/capacity/throughput - info transmitted per second
+basic security theorem
+breakable
+capability-based system - Some systems store permissions with subjects rather than objects
+channel
+confidentiality - who can read information
+confusion
+containment problem
+countermeasure
+covert channels - is a path for the illegal ﬂow of information between subjects within a system, utilizing system resources that were not designed to be used for inter-subject communication
+cryptanalysis
+cryptography
+diﬀusion
+discrete source/zero-memory source
+discretionary access controls (DAC) - rule enforcement may be waived or modiﬁed by some users
+dominates relation - L1 >= L2 and S2 subset of S1
+downgrading
+encoding
+encryption/decryption
+entropy - -(∑ pi log2 pi, i)
+equivocation
+existence of channel - bool
+ﬁrst-order model, etc.
+fundamental theorem of the noiseless channel - If a language has entropy h (bits per symbol) and a channel can transmit C bits per second, then it is possible to encode the signal is such a way as to transmit at an average rate of (C/h)−ǫ symbols per second, where ǫ can be made arbitrarily small. It is impossible to transmit at an average rate greater than C/h.
+hierarchical levels
+information content
+information ﬂow policies
+information theory
+integrity - who can write, modify or generate information
+integrity levels
+integrity policies
+key length
+keyed cipher/keyless cipher
+keyspace
+label creep
+lattice-based security - The set of BLP labels under dominates forms a lattice; such a policy is an instance of lattice-based security
+lossless encoding - it must be possible to recover the entire original sequence of symbols from the transmission
+mandatory access controls (MAC) - rules are enforced on every attempted access, not at the discretion of any system user
+metapolicy - The overall security goals of the system
+modiﬁcation
+multi-level security (MLS)
+need-to-know categories
+noisy/noiseless - can the information be transmitted without loss or distortion
+non-interference - If security demands that SH must never communicate with SL, there shouldn’t be anything that SH can do that has eﬀects visible to SL
+non-repudiation - can I deny my actions
+nth order Markov source
+objects - the information containers protected by the system
+partial order
+plaintext/ciphertext
+policy - A system-speciﬁc reﬁnement of the metapolicy adequate to provide guidance to developers and users of the system
+policy/mechanism/assurance distinction
+preﬁx-free
+pseudo-random number generator (PRNG)
+READ (S, O): if object O exists and LS≥LO, then return its current value; otherwise, return a zero.
+WRITE(S, O, V): if object exists O and LS≤LO, change its value to V; otherwise, do nothing.
+CREATE (S, O): if no object with name O exists anywhere on the system, create a new object O at level LS; otherwise, do nothing.
+DESTROY (S, O): if an object with name O exists and the LS≤LO, destroy it; otherwise, do nothing.
+risk management - process for an organization to identify and address the risks in their environment ( acceptance, avoidance, mitigation, transfer )
+role-based access control (RBAC) - Role assignment: A subject can execute a transaction only if the subject has an active role; Role authorization: A subject’s active role must be an authorized role for that subject; Transaction authorization: A subject can execute a transaction only if the transaction is authorized for one of the subject’s active roles.
+security
+security labels/levels
+security model
+security policy
+sender/receiver
+separation of duty - several diﬀerent subjects must be involved to complete a critical function
+separation of function - a single subject cannot complete complementary roles within a critical process
+simple integrity property - Subject s can read object o only if i(s)≤ i(o)
+simple security property - Subject S with clearance (LS , CS) may be granted read access to object O with classiﬁcation (LO, CO) only if (LS , CS)≥(LO, CO )
+storage channels - Attempted access by SL to a high level resource returns one of two error messages: Resource not found or Access denied. By modulating the status of the resource, SH can send a bit of information on each access attempt by SL.
+strong tranquility property - Subjects and objects do not change labels during the lifetime of the system
+subjects - entities (users, processes, etc.) that execute activities and request access to objects
+substitution - in which each symbol is exchanged for another (not necessarily uniformly) (confusion)
+substitution cipher
+symmetric channel
+streaming - there should be no breaks in the encoding
+system attribute
+system high
+system low - all other processes
+timing channels -  because the information is recorded in the ordering or duration of events on the systeml; set bit to end process early
+total order
+transposition - in which the order of symbols is rearranged (diffusion)
+trusted subject
+uniquely decodable - for any encoded string, there must be only one possible decoding
+water mark policy
+weak tranquility property - Subjects and objects do not change labels in a way that violates the “spirit” of the security policy
+zero-order model
+Timing: how much time did a computation take?
+Implicit: what control path does the program take?
+Termination: does a computation terminate?
+Probability: what is the distribution of system events?
+Resource exhaustion: is some resource depleted?
+Power: how much energy is consumed?
