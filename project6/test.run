@@ -1,0 +1,9 @@
+WRITE user2 file1
+READ user2 file1
+EXECUTE user2 file1
+CHMOD user1 file1 0777
+CHMOD user2 file1 0777
+WRITE user2 file1
+READ user2 file1
+EXECUTE user2 file1
+EXIT

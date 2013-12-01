@@ -1,0 +1,5 @@
+Vaibhav Gupta (VG6663)
+Prad [idk how to spell]
+
+to run with test data
+python ACS.py userList fileList  < test.run && cat state.log
