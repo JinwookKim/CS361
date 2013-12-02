@@ -127,7 +127,7 @@ public class ACS
 				String owner = data.user;
 				String group = userMap.get(owner);
 				String mode = getMode(data.perms);
-				out.write(mode + " " + owner + " " + group + " " + file);
+				out.write(mode + " " + owner + " " + group + " " + file + "\n");
 			}
 			
 		} catch (FileNotFoundException e)
