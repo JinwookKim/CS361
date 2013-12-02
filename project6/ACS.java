@@ -172,7 +172,7 @@ public class ACS
 			return 1;
 		if(userGroup.equals(fileGroup) && canWrite(filePerm[2]))
 			return 2;
-		if(canRead(filePerm[3]))
+		if(canWrite(filePerm[3]))
 			return 3;
 		
 		return -1;
@@ -365,7 +365,7 @@ public class ACS
 
 	public static void main(String[] args)
 	{
-		if(args.length < 3)
+		if(args.length < 2)
 		{
 			System.out.println("Usage: java ACS [-r] <userList> <fileList>");
 			System.exit(-1);
