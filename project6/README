@@ -1,5 +1,15 @@
 Vaibhav Gupta (VG6663)
-Prad [idk how to spell]
+Prad Nelluru
 
 to run with test data
-python ACS.py userList fileList  < test.run && cat state.log
+javac *.java
+java ACS userList fileList  < test.run && cat state.log
+java ACS -r userList fileList  < test.run && cat state.log
+
+For timing 10000 instructions were used:
+time java ACS userList fileList < test-long.run >> /dev/null
+real 0m12.992s
+user 0m2.296s
+sys  0m1.048s
+
+0.0012 s / instruction
