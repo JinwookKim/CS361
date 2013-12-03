@@ -405,8 +405,7 @@ public class ACS
 			lineNum++;
 		}
 		
-		if(root)
-			userMap.put("root", "root");
+		userMap.put("root", "root");
 		
 		List<String> fileLines = getLines(fileFile);
 		HashMap<String, FileInfo> fileMap = new HashMap<>();
