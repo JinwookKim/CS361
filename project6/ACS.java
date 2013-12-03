@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 
 public class ACS
@@ -121,7 +122,7 @@ public class ACS
 		{
 			out = new PrintWriter(new File("state.log"));
 			
-			for(String file : Collections.sort(fileMap.keySet()))
+			for(String file : new TreeSet<String>(fileMap.keySet()))
 			{
 				FileInfo data = fileMap.get(file);
 				String owner = data.user;
