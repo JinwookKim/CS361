@@ -121,7 +121,7 @@ public class ACS
 		{
 			out = new PrintWriter(new File("state.log"));
 			
-			for(String file : fileMap.keySet())
+			for(String file : Collections.sort(fileMap.keySet()))
 			{
 				FileInfo data = fileMap.get(file);
 				String owner = data.user;
