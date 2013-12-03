@@ -246,3 +246,4 @@ if __name__ == '__main__':
 		fileMap[fl] = [usr, [x for x in perm]]
 
 	startSystem(root, userMap, fileMap)
+	
